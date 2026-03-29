@@ -225,6 +225,42 @@ const questions = [
         { text: "顺其自然，维持舒适的社交圈", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
         { text: "被动社交，珍惜身边的每一个人", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
     ]}
+    ```javascript
+    { text: "你对他人的评价在意程度：", options: [
+        { text: "不在意他人评价，只坚持自己的判断", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "适度在意，合理的建议会采纳", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "比较在意，容易因负面评价低落", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "遇到陌生人求助且超出你能力范围，你会：", options: [
+        { text: "明确拒绝，不浪费彼此时间", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "尽力提供间接帮助，比如指引方向", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "感到为难，但会尽力陪伴或帮忙寻找解决办法", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "当你忘记重要的事（如约会、 deadline），你会：", options: [
+        { text: "立刻补救，主动说明并承担后果", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "冷静道歉，尽快弥补，避免再次出错", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "十分愧疚，不知所措，希望得到谅解", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "你对独处的感受是：", options: [
+        { text: "享受独处，能在独处中沉淀自己", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "无所谓，独处或群居都能适应", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "不太喜欢独处，容易感到孤独", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "当团队出错需要有人承担责任时，你会：", options: [
+        { text: "主动站出来，承担主要责任并解决问题", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "承担自己分内的责任，配合解决问题", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "感到紧张，希望有人主导，自己配合弥补", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "你对“被需要”的感受：", options: [
+        { text: "享受被需要，觉得是自身价值的体现", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "适度被需要即可，不希望被过度依赖", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "很在意被需要，会尽力满足他人需求", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "选择物品时，你更看重：", options: [
+        { text: "实用性和气场，能彰显自身风格", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "性价比和舒适度，兼顾实用与美观", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "颜值和氛围感，能带来情绪价值", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]}
 ];
 
 // 信息素类型库（基于ABO性别匹配）
