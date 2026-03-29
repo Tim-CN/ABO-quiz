@@ -50,15 +50,181 @@ const questions = [
         { text: "被大家认可，是可靠的存在", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
         { text: "不被过多注意，自在地做自己", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
     ]},
-    // 补充42道题目（结构一致，内容差异化）
-    ...Array.from({ length: 42 }, (_, i) => ({
-        text: `情境题 ${i + 11}：当你遇到${["紧急情况", "陌生人求助", "工作压力", "朋友矛盾", "新环境适应"][i % 5]}时，你会？`,
-        options: [
-            { text: "主动主导，快速解决问题", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
-            { text: "配合他人，稳步处理", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
-            { text: "提供支持，关注情绪", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
-        ]
-    }))
+    { text: "遇到突发紧急情况，你的反应是：", options: [
+        { text: "立刻冷静下来，指挥身边人有序应对", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "跟随指引，做好自己能做的事，不慌乱", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "感到紧张不安，希望有人能保护和引导自己", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "你对自身情绪的掌控能力：", options: [
+        { text: "极少外露情绪，始终保持强势沉稳的状态", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "能合理调节情绪，平和对待喜怒哀乐", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "情绪细腻敏感，很容易被外界影响", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "在竞争环境中，你会：", options: [
+        { text: "全力以赴争取胜利，绝不轻易认输", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "正常参与竞争，输赢都能坦然接受", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "回避激烈竞争，更倾向于和平共处", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "你看待规则的态度是：", options: [
+        { text: "必要时可以打破规则，追求最终结果", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "遵守规则，在规则范围内行事", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "希望规则更人性化，兼顾每个人的感受", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "当有人向你求助，你会：", options: [
+        { text: "主动包揽难题，直接帮对方解决", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "力所能及地帮忙，不勉强自己", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "心软不忍心拒绝，会尽全力陪伴对方", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "你的沟通风格更偏向：", options: [
+        { text: "直接坦率，开门见山表达自己的想法", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "温和客观，清晰表达不偏激", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "委婉温柔，顾及对方的感受", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "面对压力，你的解压方式是：", options: [
+        { text: "化压力为动力，用行动解决问题", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "调整心态，循序渐进缓解压力", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "需要他人陪伴安慰，获得情感支撑", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "你对支配与服从的看法：", options: [
+        { text: "习惯主导局面，不喜欢被他人指挥", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "平等相处，互相尊重互不干涉", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "愿意依赖信任的人，接受温柔的引导", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "在学习/工作中，你更擅长：", options: [
+        { text: "统筹全局，把控整体方向和进度", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "踏实执行，高效完成分内的任务", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "注重细节，用细腻的心思完善成果", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "你对陌生人的态度：", options: [
+        { text: "自信大方，主动开启交流", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "礼貌疏离，保持适度的距离", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "腼腆害羞，不太敢主动接触", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "当发生争执时，你会：", options: [
+        { text: "据理力争，坚持自己的立场", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "理性沟通，寻找双方都接受的方案", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "主动退让，不想让矛盾升级", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "你理想的生活状态是：", options: [
+        { text: "拼搏进取，拥有更高的社会地位", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "安稳平淡，轻松自在无拘无束", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "温馨治愈，被爱与温暖包围", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "你的保护欲强弱：", options: [
+        { text: "极强，想要保护身边所有重要的人", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "适中，只保护自己在意的人", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "较弱，更希望被他人保护", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "做选择时，你更容易：", options: [
+        { text: "果断决定，不拖泥带水", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "理性思考，权衡后再决定", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "犹豫不决，害怕做出错误选择", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "你在群体中的定位：", options: [
+        { text: "核心决策者，掌控群体方向", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "中坚参与者，维持群体稳定", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "氛围调和者，温暖整个群体", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "你对依赖他人的看法：", options: [
+        { text: "拒绝依赖，习惯独立解决所有事", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "可以适度依赖，互相扶持", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "愿意依赖信任的人，获得安全感", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "面对批评，你的反应是：", options: [
+        { text: "不服气，会证明自己的能力", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "理性接受，有则改之无则加勉", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "内心难过，容易被负面评价影响", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "你的行动力特点：", options: [
+        { text: "雷厉风行，想到就立刻去做", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "稳扎稳打，计划好再行动", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "偏慢热，需要鼓励才会行动", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "你更喜欢的相处模式：", options: [
+        { text: "主导关系，掌握主动权", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "平等独立，互不束缚", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "亲密黏人，时刻感受到陪伴", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "当团队出现分歧，你会：", options: [
+        { text: "强势统一意见，推动进程", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "协调双方，找到折中方案", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "安抚情绪，让大家冷静下来", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "你的自信心来源：", options: [
+        { text: "自身的实力和掌控力", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "平和的心态和自我认可", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "他人的肯定和陪伴", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "你对新鲜感的需求：", options: [
+        { text: "喜欢挑战新鲜事物，追求刺激", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "接受新鲜感，也习惯稳定", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "偏爱熟悉安稳，不喜欢变动", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "你处理秘密的方式：", options: [
+        { text: "守口如瓶，绝不泄露他人秘密", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "理性对待，不随意传播", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "会心疼对方，给予温柔的安慰", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "你面对失败的态度：", options: [
+        { text: "越挫越勇，一定要重新赢回来", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "接受失败，总结经验重新开始", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "容易失落，需要时间慢慢调整", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "你的气场给人的感觉：", options: [
+        { text: "强势有压迫感，让人敬畏", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "温和平和，让人觉得舒服", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "柔软亲和，让人想要靠近", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "你对承诺的看法：", options: [
+        { text: "承诺必须兑现，说到做到", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "谨慎许诺，尽力完成承诺", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "重视承诺，会为了承诺用心付出", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "你更喜欢的环境：", options: [
+        { text: "充满竞争和机遇的环境", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "轻松和谐，没有压力的环境", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "安静温暖，充满安全感的环境", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "你对自身边界感：", options: [
+        { text: "边界感极强，不允许他人侵犯", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "有清晰边界，尊重彼此空间", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "边界感较弱，容易迁就他人", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "当你感到不安时，你会：", options: [
+        { text: "强行压制情绪，装作若无其事", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "自我调节，慢慢平复情绪", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "寻找依靠，渴望被安慰和拥抱", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "你的领导力潜质：", options: [
+        { text: "天生具备领导力，适合带领他人", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "可以胜任领导，也愿意配合", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "不适合领导，更喜欢跟随他人", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "你对情感表达的态度：", options: [
+        { text: "不轻易表达情感，偏向内敛强势", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "自然表达情感，不刻意也不矫情", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "乐于表达情感，温柔且直白", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "你面对权威的态度：", options: [
+        { text: "不畏惧权威，敢于提出不同意见", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "尊重权威，理性服从合理规则", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "顺从权威，愿意听从指引", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "你的共情能力：", options: [
+        { text: "较弱，更关注事实而非情绪", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "适中，能理解他人的情绪", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "极强，能深刻感知他人的痛苦", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "你对未来的期待：", options: [
+        { text: "成为强者，掌控自己的人生", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "平安顺遂，过好平凡的每一天", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "拥有爱与被爱，被温柔以待", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]},
+    { text: "你处理人际关系的方式：", options: [
+        { text: "主动社交，掌控人际关系主导权", scores: { alpha: 3, beta: 0, omega: 0, male: 2, female: 0 } },
+        { text: "顺其自然，维持舒适的社交圈", scores: { alpha: 0, beta: 3, omega: 0, male: 1, female: 1 } },
+        { text: "被动社交，珍惜身边的每一个人", scores: { alpha: 0, beta: 0, omega: 3, male: 0, female: 2 } }
+    ]}
 ];
 
 // 信息素类型库（基于ABO性别匹配）
